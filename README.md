@@ -9,5 +9,4 @@ PS-DOMAIN
 pslabpractice.com
 Client workstation: DESKTOP-XXXXXXX , domain-joined
 Fully self-hosted, no external dependencies beyond internet access for updates and(later) Entra ID sync.
-**
-Please refer to AD_Lab_Documentation.pdf for brief information about the project and Screenshots + explained outputs for Final results**
+**Please refer to AD_Lab_Documentation.pdf for brief information about the project and Screenshots + explained outputs for Final results**
