@@ -1,0 +1,143 @@
+<svg viewBox="0 0 1100 900" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#555"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#0078D4"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1100" height="900" fill="#ffffff"/>
+
+  <text x="550" y="38" text-anchor="middle" font-size="24" font-weight="700" fill="#1a1a1a">PSLabPractice — Hybrid Active Directory Architecture</text>
+  <text x="550" y="60" text-anchor="middle" font-size="13" fill="#666">On-premises Active Directory + Microsoft Entra ID hybrid identity lab</text>
+
+  <!-- CLOUD LAYER -->
+  <rect x="60" y="90" width="980" height="140" rx="10" fill="#EAF3FC" stroke="#0078D4" stroke-width="1.5"/>
+  <text x="80" y="115" font-size="14" font-weight="700" fill="#0078D4">CLOUD — Microsoft Entra ID Tenant</text>
+
+  <rect x="90" y="135" width="230" height="75" rx="6" fill="#ffffff" stroke="#0078D4" stroke-width="1.2"/>
+  <text x="205" y="158" text-anchor="middle" font-size="12.5" font-weight="600" fill="#1a1a1a">Entra ID Directory</text>
+  <text x="205" y="176" text-anchor="middle" font-size="10.5" fill="#444">Synced Users</text>
+  <text x="205" y="191" text-anchor="middle" font-size="10.5" fill="#444">(Departments + Management)</text>
+
+  <rect x="350" y="135" width="230" height="75" rx="6" fill="#ffffff" stroke="#0078D4" stroke-width="1.2"/>
+  <text x="465" y="158" text-anchor="middle" font-size="12.5" font-weight="600" fill="#1a1a1a">Authentication</text>
+  <text x="465" y="176" text-anchor="middle" font-size="10.5" fill="#444">Password Hash Sync</text>
+  <text x="465" y="191" text-anchor="middle" font-size="10.5" fill="#444">login.microsoftonline.com</text>
+
+  <rect x="610" y="135" width="230" height="75" rx="6" fill="#ffffff" stroke="#0078D4" stroke-width="1.2"/>
+  <text x="725" y="158" text-anchor="middle" font-size="12.5" font-weight="600" fill="#1a1a1a">Microsoft Graph</text>
+  <text x="725" y="176" text-anchor="middle" font-size="10.5" fill="#444">graph.microsoft.com</text>
+  <text x="725" y="191" text-anchor="middle" font-size="10.5" fill="#444">Directory management API</text>
+
+  <!-- Sync arrow -->
+  <line x1="550" y1="230" x2="550" y2="280" stroke="#0078D4" stroke-width="2" marker-end="url(#arrowBlue)"/>
+  <rect x="440" y="238" width="220" height="34" rx="5" fill="#ffffff" stroke="#0078D4" stroke-width="1"/>
+  <text x="550" y="259" text-anchor="middle" font-size="11" font-weight="600" fill="#0078D4">Entra Connect Sync (scheduled)</text>
+
+  <!-- ON-PREM LAYER -->
+  <rect x="60" y="290" width="980" height="330" rx="10" fill="#F3F6F4" stroke="#2E7D32" stroke-width="1.5"/>
+  <text x="80" y="315" font-size="14" font-weight="700" fill="#2E7D32">ON-PREMISES — pslabpractice.com</text>
+
+  <!-- DC box -->
+  <rect x="90" y="335" width="330" height="255" rx="8" fill="#ffffff" stroke="#2E7D32" stroke-width="1.4"/>
+  <text x="255" y="358" text-anchor="middle" font-size="13" font-weight="700" fill="#1a1a1a">PS-DOMAIN (Domain Controller)</text>
+  <text x="255" y="373" text-anchor="middle" font-size="10" fill="#666">AD DS · DNS · GPO · Entra Connect Sync</text>
+
+  <rect x="108" y="385" width="294" height="185" rx="5" fill="#FAFAF7" stroke="#ccc" stroke-width="1"/>
+  <text x="255" y="403" text-anchor="middle" font-size="11" font-weight="600" fill="#333">OU Structure</text>
+  <text x="120" y="422" font-size="10.5" fill="#333" font-family="Consolas, monospace">PSLabPractice</text>
+  <text x="132" y="438" font-size="10.5" fill="#333" font-family="Consolas, monospace">├─ Departments</text>
+  <text x="146" y="453" font-size="10" fill="#555" font-family="Consolas, monospace">├─ Sales  ├─ Finance</text>
+  <text x="146" y="467" font-size="10" fill="#555" font-family="Consolas, monospace">├─ IT     └─ HR</text>
+  <text x="132" y="483" font-size="10.5" fill="#333" font-family="Consolas, monospace">├─ Management</text>
+  <text x="132" y="499" font-size="10.5" fill="#333" font-family="Consolas, monospace">├─ Computers</text>
+  <text x="146" y="514" font-size="10" fill="#555" font-family="Consolas, monospace">├─ Workstations └─ Servers</text>
+  <text x="132" y="530" font-size="10.5" fill="#333" font-family="Consolas, monospace">└─ ServiceAccounts</text>
+  <text x="120" y="552" font-size="9.5" fill="#888">AGDLP groups (G_* / DL_*) nested</text>
+  <text x="120" y="565" font-size="9.5" fill="#888">per department, scoped to each OU</text>
+
+  <!-- GPO box -->
+  <rect x="440" y="335" width="290" height="255" rx="8" fill="#ffffff" stroke="#2E7D32" stroke-width="1.4"/>
+  <text x="585" y="358" text-anchor="middle" font-size="13" font-weight="700" fill="#1a1a1a">Group Policy Objects</text>
+
+  <rect x="458" y="378" width="254" height="58" rx="5" fill="#F3F6F4" stroke="#2E7D32" stroke-width="0.8"/>
+  <text x="470" y="397" font-size="10.5" font-weight="600" fill="#1a1a1a">GPO-DriveMappings</text>
+  <text x="470" y="411" font-size="9.5" fill="#555">User Config · item-level targeting</text>
+  <text x="470" y="424" font-size="9.5" fill="#555">linked → Departments OU</text>
+
+  <rect x="458" y="444" width="254" height="58" rx="5" fill="#F3F6F4" stroke="#2E7D32" stroke-width="0.8"/>
+  <text x="470" y="463" font-size="10.5" font-weight="600" fill="#1a1a1a">GPO-SecurityBaseline</text>
+  <text x="470" y="477" font-size="9.5" fill="#555">Computer + User Config</text>
+  <text x="470" y="490" font-size="9.5" fill="#555">inactivity lock · screen saver</text>
+
+  <rect x="458" y="510" width="254" height="58" rx="5" fill="#F3F6F4" stroke="#2E7D32" stroke-width="0.8"/>
+  <text x="470" y="529" font-size="10.5" font-weight="600" fill="#1a1a1a">GPO-LocalAdmins</text>
+  <text x="470" y="543" font-size="9.5" fill="#555">Restricted Groups · G_IT +</text>
+  <text x="470" y="556" font-size="9.5" fill="#555">Domain Admins → local admin</text>
+
+  <!-- Shares box -->
+  <rect x="760" y="335" width="270" height="255" rx="8" fill="#ffffff" stroke="#2E7D32" stroke-width="1.4"/>
+  <text x="895" y="358" text-anchor="middle" font-size="13" font-weight="700" fill="#1a1a1a">C:\Shares</text>
+  <text x="895" y="373" text-anchor="middle" font-size="10" fill="#666">Share: Everyone Full Control</text>
+  <text x="895" y="386" text-anchor="middle" font-size="10" fill="#666">NTFS: scoped per DL_* group</text>
+
+  <rect x="778" y="398" width="110" height="46" rx="4" fill="#F3F6F4" stroke="#2E7D32" stroke-width="0.8"/>
+  <text x="833" y="425" text-anchor="middle" font-size="11" font-weight="600" fill="#1a1a1a">Sales</text>
+
+  <rect x="900" y="398" width="110" height="46" rx="4" fill="#F3F6F4" stroke="#2E7D32" stroke-width="0.8"/>
+  <text x="955" y="425" text-anchor="middle" font-size="11" font-weight="600" fill="#1a1a1a">Finance</text>
+
+  <rect x="778" y="454" width="110" height="46" rx="4" fill="#F3F6F4" stroke="#2E7D32" stroke-width="0.8"/>
+  <text x="833" y="481" text-anchor="middle" font-size="11" font-weight="600" fill="#1a1a1a">IT</text>
+
+  <rect x="900" y="454" width="110" height="46" rx="4" fill="#FBEAEA" stroke="#B23A3A" stroke-width="0.8"/>
+  <text x="955" y="481" text-anchor="middle" font-size="11" font-weight="600" fill="#7a2222">HR (restricted)</text>
+
+  <text x="778" y="530" font-size="9.5" fill="#888">Managers (DL_AllDept_Read):</text>
+  <text x="778" y="544" font-size="9.5" fill="#888">read-only, Sales/Finance/IT only</text>
+  <text x="778" y="562" font-size="9.5" fill="#888">HR excluded from Manager read</text>
+  <text x="778" y="576" font-size="9.5" fill="#888">access by design</text>
+
+  <!-- CLIENT LAYER -->
+  <rect x="60" y="650" width="980" height="150" rx="10" fill="#FDF6E9" stroke="#B8860B" stroke-width="1.5"/>
+  <text x="80" y="675" font-size="14" font-weight="700" fill="#8a6a06">CLIENT — Domain-Joined Workstation</text>
+
+  <rect x="90" y="695" width="360" height="85" rx="6" fill="#ffffff" stroke="#B8860B" stroke-width="1.2"/>
+  <text x="270" y="718" text-anchor="middle" font-size="12.5" font-weight="600" fill="#1a1a1a">DESKTOP-5K8UKTQ</text>
+  <text x="270" y="736" text-anchor="middle" font-size="10.5" fill="#444">OU: Computers → Workstations</text>
+  <text x="270" y="752" text-anchor="middle" font-size="10.5" fill="#444">Receives GPOs · local firewall managed</text>
+  <text x="270" y="768" text-anchor="middle" font-size="10.5" fill="#444">Test users: Alice, Bob, Carl, Mona...</text>
+
+  <rect x="490" y="695" width="480" height="85" rx="6" fill="#ffffff" stroke="#B8860B" stroke-width="1.2"/>
+  <text x="730" y="718" text-anchor="middle" font-size="12.5" font-weight="600" fill="#1a1a1a">Access Flow</text>
+  <text x="730" y="736" text-anchor="middle" font-size="10" fill="#444">Logon → Kerberos ticket (group membership cached)</text>
+  <text x="730" y="752" text-anchor="middle" font-size="10" fill="#444">GPO drive map applied → SMB share access</text>
+  <text x="730" y="768" text-anchor="middle" font-size="10" fill="#444">Effective permission = most restrictive of Share ∩ NTFS</text>
+
+  <!-- connecting lines -->
+  <line x1="255" y1="335" x2="255" y2="230" stroke="#999" stroke-width="1.3" stroke-dasharray="3,3"/>
+
+  <line x1="270" y1="695" x2="255" y2="590" stroke="#555" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <text x="150" y="645" font-size="10" fill="#555" font-weight="600">Domain join / Kerberos auth</text>
+
+  <line x1="450" y1="737" x2="700" y2="590" stroke="#555" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <text x="470" y="655" font-size="10" fill="#555" font-weight="600">GPO push (gpupdate)</text>
+
+  <line x1="700" y1="695" x2="895" y2="590" stroke="#555" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <text x="700" y="640" font-size="10" fill="#555" font-weight="600">SMB access (Share + NTFS)</text>
+
+  <!-- legend -->
+  <rect x="60" y="820" width="14" height="14" fill="#EAF3FC" stroke="#0078D4"/>
+  <text x="80" y="832" font-size="10.5" fill="#333">Cloud (Entra ID)</text>
+  <rect x="220" y="820" width="14" height="14" fill="#F3F6F4" stroke="#2E7D32"/>
+  <text x="240" y="832" font-size="10.5" fill="#333">On-premises (AD / GPO / Shares)</text>
+  <rect x="460" y="820" width="14" height="14" fill="#FDF6E9" stroke="#B8860B"/>
+  <text x="480" y="832" font-size="10.5" fill="#333">Client workstation</text>
+  <rect x="640" y="820" width="14" height="14" fill="#FBEAEA" stroke="#B23A3A"/>
+  <text x="660" y="832" font-size="10.5" fill="#333">Restricted resource</text>
+
+  <text x="550" y="875" text-anchor="middle" font-size="9.5" fill="#999">PSLabPractice Enterprise AD Lab · github.com repository diagram</text>
+</svg>
